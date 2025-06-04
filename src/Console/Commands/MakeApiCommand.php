@@ -155,16 +155,25 @@ class MakeApiCommand extends Command
 
             class {$name} extends FormRequest
             {
-
+                /**
+                 * Determine if the user is authorized to make this request.
+                 *
+                 * @return bool
+                 */
                 public function authorize()
                 {
                     return true;
                 }
 
+                /**
+                 * Get the validation rules that apply to the request.
+                 *
+                 * @return array<string, mixed>
+                 */
                 public function rules()
                 {
                     return [
-                        'name'
+                        'name' => 'required'
                     ];
                 }
 
@@ -232,13 +241,15 @@ class MakeApiCommand extends Command
                     return {$name}::create(\$request->validated());
                 }
 
-                public function show({$name} \$model)
+                public function show(\$id)
                 {
+                    \$model = {$name}::findOrFail(\$id);
                     return response()->json(\$model);
                 }
 
                 public function update({$name}UpdateRequest \$request, {$name} \$model)
                 {
+                    \$model = {\$name}::findOrFail(\$id);
                     \$model->update(\$request->validated());
                     return response()->json(\$model);
                 }
