@@ -1,0 +1,13 @@
+/.idea
+/vendor
+/node_modules
+composer.phar
+.phpunit.result.cache
+.phpunit.cache
+.DS_Store
+Thumbs.db
+auth.json
+.env
+/docs/node_modules
+/docs/.vitepress/dist
+.npmrc

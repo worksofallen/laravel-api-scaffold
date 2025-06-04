@@ -1,0 +1,3 @@
+providers:
+  - Worksofallen\LaravelCommand\LaravelCommandServiceProvider
+  - Spatie\LaravelRay\RayServiceProvider
