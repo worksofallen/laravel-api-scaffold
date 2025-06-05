@@ -254,8 +254,9 @@ class MakeApiCommand extends Command
                     return response()->json(\$model);
                 }
 
-                public function destroy({$name} \$model)
+                public function destroy(\$id)
                 {
+                    \$model = {\$name}::findOrFail(\$id);
                     \$model->delete();
                     return response()->json(['message' => 'Deleted successfully']);
                 }
